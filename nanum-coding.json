@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "license": "https://help.naver.com/support/contents/contents.nhn?serviceNo=1074&categoryNo=3497",
+    "homepage": "http://hangeul.naver.com/2017/nanum",
+    "url": "https://github.com/naver/nanumfont/releases/download/VER2.5/NanumGothicCoding-2.5.zip",
+    "hash": "09894d24bf3d61493dba052187a9200497135a4b885cb837bcb637ad2e62070f",
+    "checkver": "github",
+    "installer": {
+        "script": "
+            Get-ChildItem $dir -filter '*Windows Compatible.*' | ForEach-Object {
+                New-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Value $_.Name -Force | Out-Null
+                Copy-Item \"$dir\\$_\" -destination \"$env:windir\\Fonts\"
+            }
+        "
+    },
+    "uninstaller": {
+        "script": "
+            Get-ChildItem $dir -filter '*Windows Compatible.*' | ForEach-Object {
+                Remove-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts' -Name $_.Name.Replace($_.Extension, ' (TrueType)') -Force -ErrorAction SilentlyContinue
+                Remove-Item \"$env:windir\\Fonts\\$($_.Name)\" -Force -ErrorAction SilentlyContinue
+            }
+            Write-Host \"The 'Nanum coding' Font family has been uninstalled and will not be present after restarting your computer.\" -Foreground Magenta
+        "
+    }
+}

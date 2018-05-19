@@ -1,2 +1,7 @@
-# scoop-bucket-naver-nanum-fonts
-네이버 나눔 폰트 scoop 버킷.
+# scoop-naver-nanum 글꼴 bucket
+
+naver nanum bucket for [Scoop](http://scoop.sh). 
+
+To make it easy to install apps from this bucket, run
+    `scoop bucket add scoop-bucket-naver-nanum-fonts https://github.com/lesstif/scoop-bucket-naver-nanum-fonts.git`
+
