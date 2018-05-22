@@ -5,7 +5,7 @@
 아래 명령으로 버킷을 설치하면 됩니다.
 
 ```sh
-scoop bucket add scoop-bucket-naver-nanum-fonts https://github.com/lesstif/scoop-bucket-for-korean.git
+scoop bucket add scoop-bucket-for-korean https://github.com/lesstif/scoop-bucket-for-korean.git
 ```
 
 나눔 폰트 검색
